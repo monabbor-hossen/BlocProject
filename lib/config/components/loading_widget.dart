@@ -17,7 +17,7 @@ class _LoadingWidgetState extends State<LoadingWidget> {
     return SizedBox(
       height: widget.size,
       width: widget.size,
-      child: Platform.isAndroid ? const CircularProgressIndicator(
+      child: !kIsWeb && Platform.isAndroid ? const CircularProgressIndicator(
         color: Colors.green,
       ) : const CircularProgressIndicator(
         color: Colors.red,
