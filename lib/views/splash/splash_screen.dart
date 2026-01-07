@@ -3,6 +3,7 @@ import 'package:blocc/config/components/loading_widget.dart';
 import 'package:blocc/config/components/round_button.dart';
 import 'package:blocc/config/routes/routes_name.dart';
 import 'package:blocc/data/exceptions/app_exceptions.dart';
+import 'package:blocc/services/splash/splash_services.dart';
 import 'package:blocc/views/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,13 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  SplashServices _splashServices = SplashServices();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _splashServices.isLogin(context);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
