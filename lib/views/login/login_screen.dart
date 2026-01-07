@@ -1,6 +1,6 @@
 import 'package:blocc/models/user/user_model.dart';
 import 'package:flutter/material.dart';
-
+import 'widgets/widgets.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -27,19 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextFormField(
-                keyboardType: TextInputType.emailAddress,
-                focusNode: emailFocusNode,
-                decoration: const InputDecoration(hintText: 'Email', border: OutlineInputBorder()),
-                onChanged: (value){},
-                validator: (value){
-                  if(value!.isEmpty){
-                    return 'Enter email';
-                  }
-                  return null;
-                },
-                onFieldSubmitted: (value){},
-              ),
+              EmailInputWidget(emailFocusNode: emailFocusNode),
               const SizedBox(
                 height: 20,
               ),
@@ -61,6 +49,11 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(
                 height: 20,
               ),
+              ElevatedButton(onPressed: (){
+                if(_formKey.currentState!.validate()){
+                  print('I am here');
+                }
+              }, child: const Text('Login')),
             ],
           ),
         ),
