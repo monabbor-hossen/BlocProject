@@ -35,11 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(
                 height: 20,
               ),
-              ElevatedButton(onPressed: (){
-                if(_formKey.currentState!.validate()){
-                  print('I am here');
-                }
-              }, child: const Text('Login')),
+              LoginButton(formKey: _formKey,)
             ],
           ),
         ),
