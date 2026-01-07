@@ -31,21 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(
                 height: 20,
               ),
-              TextFormField(
-                keyboardType: TextInputType.text,
-                focusNode: passwordFocusNode,
-                obscureText: true,
-                decoration: const InputDecoration(hintText: 'Password', border: OutlineInputBorder()),
-                onChanged: (value){},
-
-                validator: (value){
-                  if(value!.isEmpty){
-                    return 'Enter Password';
-                  }
-                  return null;
-                },
-                onFieldSubmitted: (value){},
-              ),
+              PasswordInputWidget(passwordFocusNode: passwordFocusNode),
               const SizedBox(
                 height: 20,
               ),
