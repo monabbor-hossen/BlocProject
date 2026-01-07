@@ -17,8 +17,8 @@ class EmailChanged extends LoginEvents{
 }
 
 class EmailUnfocused extends LoginEvents{}
-class PasswordChange extends LoginEvents{
-  const PasswordChange({required this.password});
+class PasswordChanged extends LoginEvents{
+  const PasswordChanged({required this.password});
 
   final String password;
 
