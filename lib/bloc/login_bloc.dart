@@ -1,5 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+
+import '../utils/enums.dart';
 part 'login_event.dart';
 part 'login_states.dart';
 
