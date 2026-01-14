@@ -28,4 +28,4 @@ class PasswordChanged extends LoginEvents{
 class PasswordUnfocused extends LoginEvents{}
 
 
-class SubmitButton extends LoginEvents{}
+class LoginApi extends LoginEvents{}
