@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:blocc/data/exceptions/app_exceptions.dart';
 import 'package:blocc/data/network/base_api_service.dart';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 class NetworkServiceApi implements BaseApiService{
   @override
@@ -45,6 +46,11 @@ if(response.statusCode == 200){
   Future<dynamic> postApi(String url, data) async{
 
     dynamic jsonResponse;
+    if(kDebugMode){
+      print(url);
+      print(data);
+
+    }
     try{
       final response = await http.post(Uri.parse(url),body: data).timeout(const Duration(seconds: 50));
       jsonResponse = returnResponse(response);
@@ -60,7 +66,7 @@ if(response.statusCode == 200){
   }
 
   dynamic returnResponse(http.Response response){
-    switch(response){
+    switch(response.statusCode){
       case 200:
         dynamic jsonResponse =jsonDecode(response.body);
         return jsonResponse;

@@ -45,11 +45,12 @@ class LoginBloc extends Bloc<LoginEvents, LoginStates>{
     await loginRepository.loginApi(data).then((value){
       if(value.error.isNotEmpty){
         emit(
-          state.copyWith(message: 'Login Successfull',postApiStatus: PostApiStatus.success),
+          state.copyWith(message: value.error.toString(),postApiStatus: PostApiStatus.error),
         );
       }else{
+
         emit(
-          state.copyWith(message: value.error.toString(),postApiStatus: PostApiStatus.error),
+          state.copyWith(message: value.token,postApiStatus: PostApiStatus.success),
         );
       }
     }).onError((error, stateTrace){
