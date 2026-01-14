@@ -8,7 +8,8 @@ class AppException implements Exception{
 
   @override
   String toString() {
-    return '$_message$_prefix';
+    if(_message == null) return '$_prefix';
+    return '$_message: $_prefix';
   }
 
 
