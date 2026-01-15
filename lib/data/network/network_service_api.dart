@@ -43,7 +43,7 @@ if(response.statusCode == 200){
   }
 
   @override
-  Future<dynamic> postApi(String url, data) async{
+  Future<dynamic> postApi(String url, var data) async{
 
     dynamic jsonResponse;
     if(kDebugMode){
@@ -52,7 +52,7 @@ if(response.statusCode == 200){
 
     }
     try{
-      final response = await http.post(Uri.parse(url),body: data).timeout(const Duration(seconds: 50));
+      final response = await http.post(Uri.parse(url), body: data).timeout(const Duration(seconds: 50));
       jsonResponse = returnResponse(response);
       if(response.statusCode == 200){
 
@@ -66,6 +66,9 @@ if(response.statusCode == 200){
   }
 
   dynamic returnResponse(http.Response response){
+    if(kDebugMode){
+      print(response.statusCode);
+    }
     switch(response.statusCode){
       case 200:
         dynamic jsonResponse =jsonDecode(response.body);

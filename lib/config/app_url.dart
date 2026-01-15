@@ -1,5 +1,5 @@
 class AppUrl {
 
-  static String loginApi = 'https://abulsaydi.ezorastore.com/api/login.php';
+  static String loginApi = 'https://reqres.in/api/login';
 
 }
